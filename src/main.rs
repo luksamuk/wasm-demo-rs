@@ -1,6 +1,3 @@
-// Stuff taken from:
-// https://github.com/koute/pinky/tree/master/pinky-web
-
 #![recursion_limit="2048"]
 
 #[macro_use]
@@ -28,8 +25,6 @@ use stdweb::web::event::{
     KeyboardLocation
 };
 
-// run using:
-// cargo +nightly web start --target-webasm --release
 
 fn on_key(key: &str, location: KeyboardLocation, is_pressed: bool) -> bool {
     let location = format!("{:?}", location);
