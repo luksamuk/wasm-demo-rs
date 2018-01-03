@@ -4,12 +4,12 @@ A basic example of Rust compiled to WebAssembly, using Rust's own native tools.
 ## About
 This is a simple demo for compiling Rust to WebAssembly.
 This demo uses the nightly toolchain, the `cargo web` command, and the `stdweb` crate.
-While this is a new feature, there is some setup that you will need in order to build and run this. I recommend doing in on Linux, since we'll be using a single Makefile I wrote to make your life easier, but you could also replicate its commands manually on your favorite OS, assuming it runs Rust, `cargo web` and `stdweb` fine.
+While this is a new feature, there is some setup that you will need to do so you can build and run this. I recommend doing it on Linux, since we'll be using a single Makefile I wrote to make my life easier, but you could also replicate its commands manually on your favorite OS, assuming it runs Rust, `cargo web` and `stdweb` fine.
 
 I felt the need to create this repository for future reference, so it is only a simple demo with small considerations. I might add or remove things, if necessary.
 
 ## Dependencies
-As stated above, this demo depends on the nightly toolchain (for now), and the cargo-web tool.
+As stated above, this demo depends on the nightly toolchain (for now), and the `cargo-web` tool.
 Assuming you have `rustup` installed, you can install the nightly toolchain with the following command:
 
 ```bash
@@ -62,3 +62,4 @@ Notice that the static `index.html` refers to `js/app.js` instead of `wasm-demo-
 - [Setting up the native WASM target for Rust](https://www.hellorust.com/setup/wasm-target/)
 - [Koute's awesome NES emulator, Pinky, running on the web](https://github.com/koute/pinky/tree/master/pinky-web), which inspired this small demo. Also has bindings for Emscripten and asmjs targets.
 - [raphamorim's awesome WASM + Rust tutorial](https://github.com/raphamorim/wasm-and-rust), which covers the Emscripten side of things while also explaining some aspects of WASM.
+- [My reimplementation of an old game, Super BrickBreak, in Rust/WASM](https://github.com/luksamuk/super-brickbreak-rs), which uses this very code as a template.
