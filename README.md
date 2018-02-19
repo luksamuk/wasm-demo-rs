@@ -3,17 +3,21 @@ A basic example of Rust compiled to WebAssembly, using Rust's own native tools.
 
 ## About
 This is a simple demo for compiling Rust to WebAssembly.
-This demo uses the nightly toolchain, the `cargo web` command, and the `stdweb` crate.
+This demo uses the nightly toolchain **(nightly-2018-01-21, specifically!)**, the `cargo web` command, and the `stdweb` crate.
 While this is a new feature, there is some setup that you will need to do so you can build and run this. I recommend doing it on Linux, since we'll be using a single Makefile I wrote to make my life easier, but you could also replicate its commands manually on your favorite OS, assuming it runs Rust, `cargo web` and `stdweb` fine.
 
 I felt the need to create this repository for future reference, so it is only a simple demo with small considerations. I might add or remove things, if necessary.
 
 ## Dependencies
 As stated above, this demo depends on the nightly toolchain (for now), and the `cargo-web` tool.
+As by the date of this writing (02/19/2018), the Nightly toolchain panics when building anything that uses `stdweb` or possibly `wasm32-unknown-unknown`, so we've switched to a nice solution (thanks to Elias from the Rust Brazil community on Telegram for this): we have a `rust-toolchain` file specifying which toolchain we intend to use, and more than that, its specific version.
+
+For this example, I've selected `nightly-2018-01-21`, since this is currently the version used by the `servo` project.
+
 Assuming you have `rustup` installed, you can install the nightly toolchain with the following command:
 
 ```bash
-$ rustup toolchain install nightly
+$ rustup toolchain install nightly-2018-01-21
 ```
 
 After that, you can add Rust's native WASM target with this command:
@@ -22,16 +26,17 @@ After that, you can add Rust's native WASM target with this command:
 $ rustup target add wasm32-unknown-unknown --toolchain nightly
 ```
 
-And that ought to take care of things on the toolchain side. Now, you'll need to install `cargo-web`.
+(I'm not sure the `--toolchain` is needed here though, but hey, whatever)
+
+And that ought to take care of things on the toolchain side. Now, you'll need to install `cargo-web` (v0.6.8).
 
 ```bash
-$ cargo +nightly install cargo-web
+$ cargo install cargo-web
 ```
 
-That should provide you with the latest version of `cargo-web`, using the nightly toolchain.
+That should provide you with the latest version of `cargo-web`.
 
 ## Compiling
-The following commands should work nicely with the `+nightly` flag if you're using the nightly toolchain. Once the WASM target gets to the `stable` toolchain, you might be able to omit that flag.
 
 ### Using provided Makefile
 I've written a well-documented Makefile that should make stuff easier for compiling.
@@ -44,13 +49,13 @@ You can compile directly using `cargo` as well, only instead of building, you'll
 Fire up your terminal and use the following command on the root folder:
 
 ```bash
-$ cargo +nightly web build --target-webasm --release
+$ cargo web build --target wasm32-unknown-unknown --release
 ```
 This should give you your .js and .wasm files on `target/wasm32-unknown-unknown/release`.
 If you only want to test your demo app, you can use `cargo web start` to run it on `localhost:8000`. This will also fire up your browser:
 
 ```bash
-$ cargo +nightly web start --target-webasm --release
+$ cargo web start --target wasm32-unknown-unknown --release
 ```
 
 Notice that changing your Rust files will also recompile your project, but you'll have to refresh the browser page manually so it takes effect.

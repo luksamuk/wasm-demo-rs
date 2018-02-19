@@ -45,7 +45,7 @@ site/$(name).wasm: wasm
 # Building the wasm files requires cargo web, which we have installed with the
 # nightly toolchain.
 wasm: src/main.rs
-	cargo +nightly web build --target-webasm --release
+	cargo web build --target wasm32-unknown-unknown --release
 
 
 
@@ -59,4 +59,4 @@ folder:
 # you can run `make webstart` to run the server, which will also watch for code
 # changes to execute compilation.
 webstart:
-	cargo +nightly web start --target-webasm --release
+	cargo web start --target wasm32-unknown-unknown --release
