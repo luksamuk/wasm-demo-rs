@@ -1,6 +1,10 @@
 # wasm-demo-rs
 A basic example of Rust compiled to WebAssembly, using Rust's own native tools.
 
+## Changelog
+02/19/2018 -- Latest `nightly` breaks compilation. Used a `rust-toolchain` file to stop the nightly version at `nightly-2018-01-21`, like the `servo` project.
+
+
 ## About
 This is a simple demo for compiling Rust to WebAssembly.
 This demo uses the nightly toolchain **(nightly-2018-01-21, specifically!)**, the `cargo web` command, and the `stdweb` crate.
