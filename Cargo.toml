@@ -5,4 +5,4 @@ authors = ["Lucas Vieira <lucasvieira@protonmail.com>"]
 description = "A basic example of Rust being compiled to WebAssembly, using Rust's own native tools. Requires nightly toolchain."
 
 [dependencies]
-stdweb = "0.3"
+stdweb = "0.4.0"

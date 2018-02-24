@@ -2,12 +2,13 @@
 A basic example of Rust compiled to WebAssembly, using Rust's own native tools.
 
 ## Changelog
-02/19/2018 -- Latest `nightly` breaks compilation. Used a `rust-toolchain` file to stop the nightly version at `nightly-2018-01-21`, like the `servo` project.
+- 02/24/2018 -- Upgraded version of `stdweb` to `0.4.0` and upgraded toolchain to `nightly-2018-02-18`.
+- 02/19/2018 -- Latest `nightly` breaks compilation. Used a `rust-toolchain` file to stop the nightly version at `nightly-2018-01-21`, like the `servo` project..
 
 
 ## About
 This is a simple demo for compiling Rust to WebAssembly.
-This demo uses the nightly toolchain **(nightly-2018-01-21, specifically!)**, the `cargo web` command, and the `stdweb` crate.
+This demo uses the nightly toolchain **(nightly-2018-02-18, specifically!)**, the `cargo web` command, and the `stdweb` crate.
 While this is a new feature, there is some setup that you will need to do so you can build and run this. I recommend doing it on Linux, since we'll be using a single Makefile I wrote to make my life easier, but you could also replicate its commands manually on your favorite OS, assuming it runs Rust, `cargo web` and `stdweb` fine.
 
 I felt the need to create this repository for future reference, so it is only a simple demo with small considerations. I might add or remove things, if necessary.
@@ -16,12 +17,12 @@ I felt the need to create this repository for future reference, so it is only a 
 As stated above, this demo depends on the nightly toolchain (for now), and the `cargo-web` tool.
 As by the date of this writing (02/19/2018), the Nightly toolchain panics when building anything that uses `stdweb` or possibly `wasm32-unknown-unknown`, so we've switched to a nice solution (thanks to Elias from the Rust Brazil community on Telegram for this): we have a `rust-toolchain` file specifying which toolchain we intend to use, and more than that, its specific version.
 
-For this example, I've selected `nightly-2018-01-21`, since this is currently the version used by the `servo` project.
+For this example, I've selected `nightly-2018-02-18`, since this is currently the version used by the `servo` project.
 
 Assuming you have `rustup` installed, you can install the nightly toolchain with the following command:
 
 ```bash
-$ rustup toolchain install nightly-2018-01-21
+$ rustup toolchain install nightly-2018-02-18
 ```
 
 After that, you can add Rust's native WASM target with this command:
