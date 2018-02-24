@@ -75,6 +75,7 @@ Notice that changing your Rust files will also recompile your project, but you'l
 Notice that the static `index.html` refers to `js/app.js` instead of `wasm-demo-rs.js`. This is done on purpose, since `cargo web start` asks you to refer to this file on your `html`. To fix this, you can use a small substitution, such as using `sed`, when copying the index.html file to your output folder (this is done on the Makefile, so refer to it for an example).
 
 ## Useful links
+- Koute's stdweb crate [repository](https://github.com/koute/stdweb) and [documentation](https://docs.rs/stdweb/*/stdweb/).
 - [Setting up the native WASM target for Rust](https://www.hellorust.com/setup/wasm-target/)
 - [Koute's awesome NES emulator, Pinky, running on the web](https://github.com/koute/pinky/tree/master/pinky-web), which inspired this small demo. Also has bindings for Emscripten and asmjs targets.
 - [raphamorim's awesome WASM + Rust tutorial](https://github.com/raphamorim/wasm-and-rust), which covers the Emscripten side of things while also explaining some aspects of WASM.
