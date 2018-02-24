@@ -16,7 +16,7 @@ name=wasm-demo-rs
 
 # Those targets theoretically produce no files.
 # That's not really true here, but...
-.PHONY: folder wasm webstart
+.PHONY: folder wasm webstart clean
 
 # To build, we need to create folders, copy our index.html,
 # and also copy our wasm and js files.
@@ -60,3 +60,6 @@ folder:
 # changes to execute compilation.
 webstart:
 	cargo web start --target wasm32-unknown-unknown --release
+
+clean:
+	cargo clean

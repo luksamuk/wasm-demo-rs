@@ -25,7 +25,6 @@ use stdweb::web::event::{
     MouseMoveEvent
 };
 
-// nightly-2018-01-21
 
 /// Handles keyboard events.
 fn on_key(key: &str, location: KeyboardLocation, is_pressed: bool) -> bool {
