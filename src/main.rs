@@ -10,7 +10,7 @@ use stdweb::web::{
     self,
     IEventTarget,
     INonElementParentNode,
-    CanvasRenderingContext2d
+    CanvasRenderingContext2d,
 };
 use stdweb::web::event::{
     IEvent,
@@ -24,6 +24,7 @@ use stdweb::web::event::{
     MouseUpEvent,
     MouseMoveEvent
 };
+use std::f64::consts::PI;
 
 
 /// Handles keyboard events.
@@ -52,20 +53,19 @@ fn on_mouse_move(pos: (f64, f64)) -> bool {
 
 /// Draws a colored box.
 fn draw_box(ctx: &CanvasRenderingContext2d, color: &str, pos: (f64, f64), size: (f64, f64)) {
-    js! { @{ctx}.fillStyle = @{color}; } // Still needs to setup color manually
+    ctx.set_fill_style_color(color);
     ctx.fill_rect(pos.0, pos.1, size.0, size.1);
 }
 
 /// Draws a colored circle.
 fn draw_circle(ctx: &CanvasRenderingContext2d, color: &str, pos: (f64, f64), radius: f64) {
     // Still needs to be done manually
-    js! {
-        @{ctx}.beginPath();
-        @{ctx}.arc(@{pos.0}, @{pos.1}, @{radius}, 0, Math.PI * 2.0);
-        @{ctx}.fillStyle = @{color};
-        @{ctx}.fill();
-        @{ctx}.closePath();
-    };
+    ctx.begin_path();
+    ctx.set_fill_style_color(color);
+    ctx.arc(pos.0, pos.1, radius, 0.0, PI * 2.0, false);
+    //ctx.fill();
+    js!{ @(no_return) @{ctx}.fill(); }; // Still waiting for implementation
+    ctx.close_path();
 }
 
 
