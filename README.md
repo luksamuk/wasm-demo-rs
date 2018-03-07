@@ -2,6 +2,7 @@
 A basic example of Rust compiled to WebAssembly, using Rust's own native tools.
 
 ## Changelog
+- 03/07/2018 -- Set toolchain to `nightly-2018-02-18`; `nightly-2018-03-06` breaks on linking.
 - 03/06/2018 -- Upgraded version of `stdweb` to `0.4.1`, which includes many canvas 2D features, but still lacks some things.
 - 02/24/2018 -- Upgraded version of `stdweb` to `0.4.0` and upgraded toolchain to latest `nightly`.
 - 02/19/2018 -- Latest `nightly` breaks compilation. Used a `rust-toolchain` file to stop the nightly version at `nightly-2018-01-21`, like the `servo` project..
